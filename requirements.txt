@@ -2,6 +2,7 @@ pre-commit
 black
 pylint
 bandit[toml]
+pytest
 flask
 flask-sqlalchemy
 Flask-Pydantic

@@ -1,0 +1,46 @@
+[project]
+name = "flaskr"
+version = "1.0.0"
+description = "A basic app built fir Flask learning."
+readme = "README.rst"
+license = {text = "BSD-3-Clause"}
+maintainers = [{name = "Duncan Fyfe", email = "duncanfyfe@domenlas.com"}]
+dependencies = [
+    "flask",
+]
+
+[project.urls]
+Documentation = "https://github.com/DuncanJF/BuyBestBrands"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.module]
+name = "flaskr"
+
+[tool.flit.sdist]
+include = [
+    "tests/",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+branch = true
+source = ["flaskr", "tests"]
+
+[tool.ruff]
+src = ["src"]
+
+[tool.black]
+target-version = ['py36', 'py37', 'py38', 'py39']
+line-length = 88
+
+[tool.pylint.format]
+max-line-length = 88

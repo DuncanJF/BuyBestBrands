@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{% block title %} Suppliers (v2) {% endblock %}</h1>
+{% if suppliers|length > 1 %}
+<div style="width: 50%; margin: auto">
+    {% for supplier in suppliers %}
+    <h2>{{ supplier[1] }}</h2>
+    <div style="padding: 10px; background-color: #EEE; margin: 20px">
+        <p style="font-size: 24px">{{ supplier[1:] }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

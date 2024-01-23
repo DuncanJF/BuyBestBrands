@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Add a New Product {% endblock %}</h1>
+    <form method="post">
+        <label for="product_id">Product Id</label>
+        <br>
+        <input type="number" name="product_id"
+               value="{{ request.form['product_id'] }}"></input>
+        <br>
+
+        <label for="supplier_id">Supplier Id</label>
+        <br>
+        <input type="number" name="supplier_id"
+               value="{{ request.form['supplier_id'] }}"></input>
+        <br>
+
+        <label for="quantity">quantity</label>
+        <br>
+        <input type="number" name="quantity"
+               value="{{ request.form['quantity'] }}"></input>
+        <br>
+
+        <label for="short_description">Quantity</label>
+        <br>
+        <input type="text" name="short_description"
+               placeholder="Short Ddescription"
+               value="{{ request.form['short_description'] }}"></input>
+        <br>
+
+        <label for="long_description">Message Content</label>
+        <br>
+        <textarea name="long_description"
+                  placeholder="Long Description"
+                  rows="15"
+                  cols="60"
+                  >{{ request.form['long_description'] }}</textarea>
+        <br>
+
+        <label for="minimum_age">Minimum Age</label>
+        <br>
+        <input type="number" name="minimum_age"
+               value="{{ request.form['minimum_age'] }}"></input>
+        <br>
+
+        <label for="input_unit_price">Input Unit Price</label>
+        <br>
+        <input type="number" name="input_unit_price"
+               value="{{ request.form['input_unit_price'] }}"></input>
+        <br>
+
+        <label for="shopper_unit_price">Shopper Unit Price</label>
+        <br>
+        <input type="number" name="shopper_unit_price"
+               value="{{ request.form['shopper_unit_price'] }}"></input>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,79 @@
+CREATE TABLE addresses (
+    address_id INTEGER NOT NULL,
+    line_no INTEGER INTEGER NOT NULL,
+    line_text TEXT NOT NULL,
+    PRIMARY KEY (address_id, line_no)
+);
+
+CREATE TABLE customers (
+    customer_id INTEGER NOT NULL UNIQUE PRIMARY KEY,
+    given_name TEXT NOT NULL,
+    family_name TEXT NOT NULL,
+    date_joined DATE NOT NULL,
+    customer_address INTEGER NOT NULL,
+    contact_phone_numbber TEST NOT NULL,
+    FOREIGN KEY (customer_address) REFERENCES addresses (address_id)
+);
+
+CREATE TABLE passwords (
+    password_id INTEGER NOT NULL UNIQUE PRIMARY KEY,
+    customer_id INTEGER NOT NULL UNIQUE,
+    password_hash TEXT NOT NULL,
+    set_date DATE NOT NULL,
+    disable_account BOOLEAN NOT NULL DEFAULT FALSE,
+    FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
+);
+
+CREATE TABLE suppliers (
+    supplier_id INTEGER NOT NULL UNIQUE PRIMARY KEY,
+    supplier_name TEXT NOT NULL,
+    supplier_address INTEGER NOT NULL,
+    supplier_status TEXT NOT NULL,
+    FOREIGN KEY (supplier_address) REFERENCES addresses (address_id)
+);
+
+CREATE TABLE products (
+    product_id INTEGER NOT NULL UNIQUE PRIMARY KEY,
+    supplier_id INTEGER NOT NULL,
+    quantity INTEGER NOT NULL CHECK (quantity >=0),
+    short_description TEXT NOT NULL,
+    long_description TEXT NOT NULL,
+    minimum_age INTEGER NOT NULL,
+    input_unit_price INTEGER NOT NULL,
+    shopper_unit_price INTEGER NOT NULL,
+    FOREIGN KEY (supplier_id) REFERENCES suppliers (supplier_id)
+);
+
+CREATE TABLE shopping_cart (
+    cart_id INTEGER NOT NULL,
+    customer_id INTEGER NOT NULL,
+    product_id  INTEGER NOT NULL,
+    quantity INTEGER NOT NULL CHECK (quantity >=0),
+    unit_offer_price INTEGER NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES customers (customer_id),
+    FOREIGN KEY (product_id) REFERENCES products (product_id),
+    PRIMARY KEY (cart_id, product_id),
+    UNIQUE (cart_id, product_id)
+);
+
+CREATE TABLE customer_orders (
+    order_id INTEGER NOT NULL UNIQUE PRIMARY KEY,
+    shopping_cart INTEGER NULL UNIQUE,
+    customer_id INTEGER NOT NULL,
+    order_date DATE NOT NULL,
+    invoice_address INTEGER NOT NULL,
+    delivery_address INTEGER NOT NULL,
+    FOREIGN KEY (shopping_cart) REFERENCES shopping_cart (cart_id),
+    FOREIGN KEY (customer_id) REFERENCES shopping_cart (customer_id)
+    FOREIGN KEY (invoice_address) REFERENCES addresses (address_id)
+    FOREIGN KEY (delivery_address) REFERENCES addresses (address_id)
+);
+
+CREATE TABLE payments (
+    payment_id INTEGER NOT NULL UNIQUE PRIMARY KEY,
+    order_id INTEGER NOT NULL UNIQUE,
+    total INTEGER NOT NULL,
+    payment_date DATE NOT NULL,
+    payment_confirmed BOOLEAN NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES customer_orders (order_id)
+);

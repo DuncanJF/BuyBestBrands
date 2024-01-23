@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Suppliers {% endblock %}</h1>
+<div style="width: 50%; margin: auto">
+    {% for supplier in suppliers %}
+    <h2>{{ supplier[1] }} </h2>
+    <div style="padding: 10px; background-color: #EEE; margin: 20px">
+        <p style="font-size: 24px">Is Active ? : {{ supplier[3] }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
