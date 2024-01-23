@@ -4,6 +4,10 @@ A simple app demonstrating Flask and SQL usage.
 
 # Getting Started
 
+## VS Code
+[Python Virtual Environments in VSCode](`https://code.visualstudio.com/docs/python/environments`)
+
+
 ## The code
     TBD
 ## SQLite
