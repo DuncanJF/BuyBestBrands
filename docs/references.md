@@ -1,8 +1,9 @@
 
 # References
 ## Python in VSCode
-[Python Extension](https://code.visualstudio.com/docs/python/python-tutorial)
-[Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+
+*  [Python Extension](https://code.visualstudio.com/docs/python/python-tutorial)
+*  [Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
 
 ## Flask
 [Digital Ocean](https://www.digitalocean.com) provide some good tutorials which may help you get started with Flask.
