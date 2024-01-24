@@ -17,3 +17,11 @@ There has been one instance where the flask application ran without error but tr
 ### Solution
 The error was only seen when calling the application from chromium on a Windows machine.
 Using a tab in an alternative browser allowed normal access.
+
+## VSCode LiveCode
+
+### Problem Description
+If live view (URL `http://127.0.0.1:3000`) is viewed it will render the HTML elements of a page but not the template components.  This makes the pages look broken and causes confusion.
+
+### Solution
+USe the correct flask URL in the browser `http://127.0.0.1:5000`
