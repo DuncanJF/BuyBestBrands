@@ -14,6 +14,9 @@ Download SQLite tools for:
 *  [Linux](https://www.sqlite.org/2024/sqlite-tools-linux-x64-3450000.zip)
 
 You might also like to install SQLiteStudio:
+
+[DIRECT](https://sqlitestudio.pl/)
+
 *  [Windows](https://github.com/pawelsalawa/sqlitestudio/releases/download/3.4.4/SQLiteStudio-3.4.4-windows-x64-installer.exe)
 *  [MacOS](https://github.com/pawelsalawa/sqlitestudio/releases/download/3.4.4/sqlitestudio-3.4.4.dmg)
 *  [Linux](https://github.com/pawelsalawa/sqlitestudio/releases/download/3.4.4/sqlitestudio-3.4.4.tar.xz)
