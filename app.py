@@ -5,7 +5,7 @@ from markupsafe import escape
 import datetime
 from flask import Flask, render_template, request, url_for, redirect, abort, g
 
-app = Flask(__name__)
+app = Flask("app")
 
 # The database configuration
 DATABASE = os.environ.get("FLASK_DATABASE", "app.db")
@@ -79,7 +79,6 @@ def greet_user2(user_id):
     except IndexError:
         abort(404)
 
-
 @app.route("/index_v2/")
 def index_v2():
     return render_template("index_v2.html", utc_dt=datetime.datetime.utcnow())
@@ -112,7 +111,6 @@ def suppliers_v2():
     conn.close()
     return render_template("suppliers_v2.html", suppliers=supps)
 
-
 @app.route("/products/")
 def products():
     conn = get_db_connection()
@@ -120,6 +118,25 @@ def products():
     conn.close()
     return render_template("products.html", products=prods)
 
+
+@app.route("/product/")
+def product():
+    args=request.args
+    if "pid" in args:
+        try:
+            s_pid=args.get("pid")
+            i_pid=int(args.get("pid"))
+            conn = get_db_connection()
+            prod = conn.execute("SELECT * FROM products WHERE product_id=?",(i_pid,)).fetchall()
+            conn.close()
+            return render_template("product.html", product=prod)
+        except:            
+            abort(404)        
+    else:
+        conn = get_db_connection()
+        prods = conn.execute("SELECT * FROM products").fetchall()
+        conn.close()        
+        return render_template("products.html", products=prods)
 
 @app.route("/add_product/", methods=("GET", "POST"))
 def add_product():

@@ -7,7 +7,7 @@
         nav a {
             color: #d64161;
             font-size: 3em;
-            margin-left: 50px;
+            margin-left: 24px;
             text-decoration: none;
         }
     </style>
@@ -15,8 +15,15 @@
 <body>
     <nav>
         <nav>
-            <a href="{{ url_for('index_v3') }}">Hello (v3)</a>
-            <a href="{{ url_for('about_v2') }}">About</a>
+            <a href="{{ url_for('hello') }}">Hello</a>
+            <a href="{{ url_for('about') }}">About</a>            
+            <a href="{{ url_for('about_v2') }}">About(v2)</a>            
+            <a href="{{ url_for('index_v2') }}">Index(v2)</a>
+            <a href="{{ url_for('index_v3') }}">Index(v3)</a>            
+            <a href="{{ url_for('suppliers') }}">Suppliers</a>
+            <a href="{{ url_for('suppliers_v2') }}">Suppliers(v2)</a>            
+            <a href="{{ url_for('products') }}">Products</a>
+            <a href="{{ url_for('add_product') }}">Add Product</a>
         </nav>
     </nav>
     <hr>

@@ -3,4 +3,7 @@
 {% block content %}
     <h1>{% block title %} About {% endblock %}</h1>
     <h3>FlaskApp is a Flask web application written in Python.</h3>
+
+    <h3>The database ERD</h3>
+    <img src="{{url_for('static', filename='github_screenshot.png')}}" align="middle" />
 {% endblock %}
