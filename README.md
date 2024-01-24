@@ -1,28 +1,38 @@
 # Buy Best Brands
 
-A mock  shopping app demonstrating Flask and SQL usage.
+A mock shopping app demonstrating Flask and SQL usage.
 
 # Getting Started
 
 ## VS Code
-You will need [Python Virtual Environments in VSCode](`https://code.visualstudio.com/docs/python/environments`)
 
-## Install SQLite
-Download SQLite tools for:
-*  [Windows](https://www.sqlite.org/2024/sqlite-tools-win-x64-3450000.zip)
-*  [MacOS](https://www.sqlite.org/2024/sqlite-tools-osx-x64-3450000.zip)
-*  [Linux](https://www.sqlite.org/2024/sqlite-tools-linux-x64-3450000.zip)
+*  You must install the VS Code [python extension](https://code.visualstudio.com/docs/languages/python).
+*  You must install the [Python Virtual Environments in VSCode](https://code.visualstudio.com/docs/python/environments).
 
-You might also like to install SQLiteStudio:
+## Copy the Code
 
-[DIRECT](https://sqlitestudio.pl/)
+You must have a copy of the code on your local machine.
+Either clone the repository or download a ZIP archive of the code.
 
-*  [Windows](https://github.com/pawelsalawa/sqlitestudio/releases/download/3.4.4/SQLiteStudio-3.4.4-windows-x64-installer.exe)
-*  [MacOS](https://github.com/pawelsalawa/sqlitestudio/releases/download/3.4.4/sqlitestudio-3.4.4.dmg)
-*  [Linux](https://github.com/pawelsalawa/sqlitestudio/releases/download/3.4.4/sqlitestudio-3.4.4.tar.xz)
+To clone it use the VScode source control tools with the repository URL `https://github.com/DuncanJF/BuyBestBrands.git`.
+You will be asked for a target directory.  After the clone is complete you should have a folder `BuyBestBrands` in the target directory.
+Open this directory in VScode before proceeding to the next steps.
 
 
-# Review
+To download a ZIP archive go to [the repository](https://github.com/DuncanJF/BuyBestBrands)
+![screenshot](images/github_screenshot.png).  Select the green `code` button.  Then select the `Download ZIP` option at the bottom of the dropdown menu.  This will download a file `BuyBestBrands-main.zip` to your local disk.  Move the file `BuyBestBrands-main.zip` to a target directory and unpack it.  Unpacking may result in a folder with subfolder `BuyBestBrands/BuyBestBrands-main` or just a folder `BuyBestBrands-main` in your target directory.  Whatever the results of unpacking the ZIP file you want to open the folder `BuyBestBrands-main` in VSCode before proceeding to the next steps.
+
+## Copy the Database
+
+There is a ready made database in the code repository.  It is in the file `ready_made_app.db`.  VSCode cannot read this file but it can copy the file.  You must copy the file `ready_made_app.db` to  `app.db` which is the name of the database filethe flask application expects.
+Having a working copy `app.db` and a backup copy `ready_made_app.db` means we can restore the working copy if we make a mistake when examining the database.
+
+## Install SQLite Studio
+
+SQLiteStudio is a GUI application which allows you to explore the database and make changes to it.  We will use this to do just that.
+
+Follow this link [SQLite Studio](https://sqlitestudio.pl/) and download the appropriate package for your computer.
+On a Mac you need to open the package then right-click on the contents and choose install.  This will give you the option to install despite the package being unsigned.
 
 ## Creating the database
 
@@ -44,13 +54,24 @@ Open those fi
 ## Flask
     TBD
 
-### Unit Testing
+## Further Documentation
+*  [Exercises](docs/exercises.md)
+*  [Unit Testing](docs/unit_testning.md)
+*  [Known Problems](docs/known_problems.md)
+*  [Useful References](docs/references.md)
+
+####
+
 
 To run the flask unit tests wexdcute the following in the project top level directory:
 ```python -m pytest```
 
 # Exercises
 # References
+
+## Python in VSCode
+[Python Extension](https://code.visualstudio.com/docs/python/python-tutorial
+[Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
 
 ## Flask
 [Digital Ocean](https://www.digitalocean.com) provide some good tutorials which may help you get started with Flask.
@@ -62,3 +83,6 @@ Website and Flask Tutorials:
 
 Relational Databases
 [SQLite](https://www.sqlite.org/index.html) is a good relation database which keeps the database in a single file.  This makes it a very convenient database for learning relational principals and SQL.  See for example these [SQLlite tutorials](https://www.sqlitetutorial.net/)
+
+# Known Problems
+Please refer to [Known Problems](docs/known_problems.md)
